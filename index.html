@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Effort Ledger</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  html, body, #root { min-height: 100%; margin: 0; background: #E7E9EC; }
+</style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-5{margin-bottom:1.25rem}.mt-1{margin-top:0.25rem}.mt-4{margin-top:1rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.grid{display:grid}.min-h-screen{min-height:100vh}.w-full{width:100%}.max-w-2xl{max-width:42rem}.flex-1{flex:1 1 0%}.grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.items-center{align-items:center}.justify-center{justify-content:center}.gap-1{gap:0.25rem}.gap-2{gap:0.5rem}.rounded-lg{border-radius:0.5rem}.rounded-md{border-radius:0.375rem}.rounded-xl{border-radius:0.75rem}.p-1{padding:0.25rem}.p-3{padding:0.75rem}.p-4{padding:1rem}.p-5{padding:1.25rem}.p-8{padding:2rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-24{padding-bottom:6rem}.pt-6{padding-top:1.5rem}.text-left{text-align:left}.text-center{text-align:center}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-2xl{font-size:1.5rem;line-height:2rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-medium{font-weight:500}.font-semibold{font-weight:600}.tracking-tight{letter-spacing:-0.025em}</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script>
+/* ------------------------------------------------------------------
+   Storage layer: Netlify Blobs, reached through a serverless function
+   at /api/storage, wrapped to match the async API the app expects.
+   Data lives in this site's cloud storage, so it survives refreshes
+   and is the same across any browser/device that opens this URL.
+   ------------------------------------------------------------------ */
+(function () {
+  var ENDPOINT = "/api/storage";
+  var TOKEN_KEY = "ledger:accessToken";
+
+  function getToken() {
+    try { return localStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; }
+  }
+  function setToken(t) {
+    try { localStorage.setItem(TOKEN_KEY, t); } catch (e) {}
+  }
+  function clearToken() {
+    try { localStorage.removeItem(TOKEN_KEY); } catch (e) {}
+  }
+
+  var promptedOnce = false;
+  function ensureToken() {
+    var t = getToken();
+    if (!t && !promptedOnce) {
+      promptedOnce = true;
+      t = window.prompt("Enter your Effort Ledger access code:") || "";
+      setToken(t);
+    }
+    return t;
+  }
+
+  function request(method, key, body) {
+    var token = ensureToken();
+    var url = ENDPOINT + (key ? "?key=" + encodeURIComponent(key) : "");
+    return fetch(url, {
+      method: method,
+      headers: { "Content-Type": "application/json", "X-Ledger-Token": token },
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    }).then(function (res) {
+      if (res.status === 401) {
+        clearToken();
+        promptedOnce = false;
+        throw new Error("unauthorized");
+      }
+      if (res.status === 404) throw new Error("not found");
+      if (!res.ok) throw new Error("storage error " + res.status);
+      return res.json();
+    });
+  }
+
+  function list(prefix) {
+    var token = ensureToken();
+    var url = ENDPOINT + "?list=1&prefix=" + encodeURIComponent(prefix || "");
+    return fetch(url, { headers: { "X-Ledger-Token": token } }).then(function (res) {
+      if (!res.ok) throw new Error("storage error " + res.status);
+      return res.json();
+    });
+  }
+
+  // Not called by the app today (it uses a fixed key list), but included
+  // for completeness / future use.
+  window.storage = {
+    get: function (key) { return request("GET", key); },
+    set: function (key, value) { return request("PUT", key, { key: key, value: value }); },
+    delete: function (key) { return request("DELETE", key); },
+    list: list,
+  };
+})();
+</script>
+
+<script type="text/babel" data-presets="react">
+const { useState, useEffect, useRef } = React;
+
+
+/* ============================================================
+   EFFORT LEDGER
+   Faculty time + outcomes documentation
+   Taxonomy grounded in:
+   - SOE Faculty Workload Policy (11/8/2024), §2 definitions & §3 effort distribution
+   - SOE Guidelines for Clinical Faculty (10/13/20), §VI.B evidence categories
+   - TEHE Departmental P&T Guidelines (rev. 5/18/2018)
+   ============================================================ */
+
+const C = {
+  paper: "#E7E9EC",
+  card: "#FFFFFF",
+  ink: "#16202E",
+  muted: "#5F6875",
+  hair: "#D2D6DD",
+  teaching: "#1F6F6B",
+  research: "#A8553A",
+  service: "#43549B",
+  dpa: "#7E6A33",
+  live: "#B3341F",
+};
+
+const DOMAINS = {
+  teaching: {
+    label: "Teaching",
+    color: C.teaching,
+    note: "SOE Workload Policy §2 — instruction, prep, advising, supervision, committee membership",
+    subs: [
+      "Course prep & materials development",
+      "Classroom instruction",
+      "Grading & feedback",
+      "Student meetings — enrolled in my course",
+      "Student meetings — not in my course",
+      "Academic advising — assigned advisees",
+      "Clinical supervision / field placement",
+      "Internship & independent study supervision",
+      "Supervision of student research",
+      "Dissertation/thesis chair or co-chair",
+      "Doctoral/thesis committee membership",
+      "Supervision of teaching assistants",
+      "Course or program development & revision",
+      "Peer observation of teaching",
+      "Teaching professional development",
+      "Course admin & student correspondence",
+    ],
+  },
+  research: {
+    label: "Research",
+    color: C.research,
+    note: "SOE Workload Policy §2 — advancement & dissemination of knowledge, grants, evaluation",
+    subs: [
+      "Research design & project development",
+      "Data collection (incl. records requests)",
+      "Data coding, cleaning & analysis",
+      "IRB & research compliance",
+      "Manuscript writing — sole-authored",
+      "Manuscript writing — collaborative",
+      "Manuscript revisions & reviewer response",
+      "Book or book chapter writing",
+      "Conference proposal preparation",
+      "Journal submission & correspondence",
+      "Conference presentation & attendance",
+      "Grant proposal writing",
+      "Grant management & reporting",
+      "Program evaluation & reports",
+      "Community-engaged scholarship",
+      "Research methods & tools training",
+    ],
+  },
+  service: {
+    label: "Service",
+    color: C.service,
+    note: "SOE Workload Policy §2 & Clinical Faculty §VI.B.2 — governance, committees, profession, community",
+    subs: [
+      "Department committee work",
+      "School of Education committee work",
+      "University / campus-wide committee work",
+      "Faculty governance (Assembly, dept meetings)",
+      "Program coordination / admin assignment",
+      "Accreditation & assessment work",
+      "Professional organization — participation",
+      "Professional organization — leadership",
+      "Manuscript & conference proposal review",
+      "Editorial board service",
+      "Student recruitment & admissions",
+      "Community engagement & partnerships",
+      "Advising student organizations",
+      "Mentoring colleagues",
+      "Required compliance & institutional training",
+    ],
+  },
+  dpa: {
+    label: "Directed Professional Activity",
+    color: C.dpa,
+    note: "SOE Workload Policy §3 — requires a signed MOU (faculty member, Chair/supervisor, Dean)",
+    subs: ["Directed Professional Activity (per MOU)", "Special Assignment (per MOU)"],
+  },
+};
+
+const OUTCOME_TYPES = {
+  teaching: [
+    "Peer observation of my teaching completed",
+    "Peer observation I conducted",
+    "Course developed or substantially revised",
+    "Program development contribution",
+    "Doctoral/thesis committee completed",
+    "Teaching award or recognition",
+    "Teaching professional development completed",
+  ],
+  research: [
+    "Peer-reviewed journal article — published",
+    "Peer-reviewed journal article — accepted",
+    "Manuscript under review",
+    "Book — contracted or published",
+    "Book chapter",
+    "Practitioner / non-peer-reviewed publication",
+    "Public scholarship",
+    "Conference presentation delivered",
+    "Conference proposal accepted",
+    "Grant submitted — external",
+    "Grant submitted — internal",
+    "Grant funded — external",
+    "Grant funded — internal",
+  ],
+  service: [
+    "Committee leadership role",
+    "Professional organization office or editorial role",
+    "Manuscript / proposal reviews completed",
+    "Community engagement activity",
+    "Service award or recognition",
+  ],
+  dpa: ["MOU deliverable completed"],
+};
+
+const DEFAULT_SETTINGS = {
+  plan: { teaching: 80, research: 0, service: 20, dpa: 0 },
+  baselineHours: 40,
+  ayStartMonth: 8, // August
+};
+
+const pad = (n) => String(n).padStart(2, "0");
+const localDate = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+const fmtClock = (secs) => {
+  const h = Math.floor(secs / 3600);
+  const m = Math.floor((secs % 3600) / 60);
+  const s = secs % 60;
+  return `${pad(h)}:${pad(m)}:${pad(s)}`;
+};
+const fmtHours = (mins) => {
+  const h = Math.floor(mins / 60);
+  const m = Math.round(mins % 60);
+  return m === 0 ? `${h}h` : `${h}h ${m}m`;
+};
+const prettyDate = (iso) => {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+};
+
+function ayBounds(settings, ref = new Date()) {
+  const startMonth = settings.ayStartMonth;
+  const y = ref.getMonth() + 1 >= startMonth ? ref.getFullYear() : ref.getFullYear() - 1;
+  return {
+    start: `${y}-${pad(startMonth)}-01`,
+    end: `${y + 1}-${pad(startMonth)}-01`,
+    label: `${y}–${String(y + 1).slice(2)}`,
+  };
+}
+
+function EffortLedger() {
+  const [tab, setTab] = useState("track");
+  const [ready, setReady] = useState(false);
+  const [saveState, setSaveState] = useState("");
+  const [entries, setEntries] = useState([]);
+  const [outcomes, setOutcomes] = useState([]);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
+  const [active, setActive] = useState(null);
+  const [now, setNow] = useState(Date.now());
+
+  const [domain, setDomain] = useState("teaching");
+  const [sub, setSub] = useState(DOMAINS.teaching.subs[0]);
+  const [note, setNote] = useState("");
+
+  const loaded = useRef(false);
+
+  /* ---------- load ---------- */
+  useEffect(() => {
+    (async () => {
+      const grab = async (key, fallback) => {
+        try {
+          const r = await window.storage.get(key);
+          return r && r.value ? JSON.parse(r.value) : fallback;
+        } catch {
+          return fallback;
+        }
+      };
+      const [e, o, s, a] = await Promise.all([
+        grab("ledger:entries", []),
+        grab("ledger:outcomes", []),
+        grab("ledger:settings", DEFAULT_SETTINGS),
+        grab("ledger:active", null),
+      ]);
+      setEntries(e);
+      setOutcomes(o);
+      setSettings({ ...DEFAULT_SETTINGS, ...s, plan: { ...DEFAULT_SETTINGS.plan, ...(s.plan || {}) } });
+      setActive(a);
+      if (a) {
+        setDomain(a.domain);
+        setSub(a.sub);
+        setNote(a.note || "");
+      }
+      loaded.current = true;
+      setReady(true);
+    })();
+  }, []);
+
+  /* ---------- save ---------- */
+  const persist = async (key, value) => {
+    if (!loaded.current) return;
+    try {
+      setSaveState("saving");
+      await window.storage.set(key, JSON.stringify(value));
+      setSaveState("saved");
+      setTimeout(() => setSaveState(""), 1400);
+    } catch {
+      setSaveState("error");
+    }
+  };
+
+  useEffect(() => {
+    if (ready) persist("ledger:entries", entries);
+  }, [entries, ready]);
+  useEffect(() => {
+    if (ready) persist("ledger:outcomes", outcomes);
+  }, [outcomes, ready]);
+  useEffect(() => {
+    if (ready) persist("ledger:settings", settings);
+  }, [settings, ready]);
+
+  /* ---------- ticking clock ---------- */
+  useEffect(() => {
+    if (!active) return;
+    const id = setInterval(() => setNow(Date.now()), 1000);
+    return () => clearInterval(id);
+  }, [active]);
+
+  const clockIn = async () => {
+    const session = { startedAt: Date.now(), domain, sub, note };
+    setActive(session);
+    setNow(Date.now());
+    await persist("ledger:active", session);
+  };
+
+  const clockOut = async () => {
+    if (!active) return;
+    const mins = Math.max(1, Math.round((Date.now() - active.startedAt) / 60000));
+    const start = new Date(active.startedAt);
+    setEntries((p) => [
+      {
+        id: `${active.startedAt}`,
+        date: localDate(start),
+        domain: active.domain,
+        sub: active.sub,
+        minutes: mins,
+        note: note || active.note || "",
+        timed: true,
+      },
+      ...p,
+    ]);
+    setActive(null);
+    setNote("");
+    await persist("ledger:active", null);
+  };
+
+  const discard = async () => {
+    setActive(null);
+    await persist("ledger:active", null);
+  };
+
+  const ay = ayBounds(settings);
+  const inAY = (d) => d >= ay.start && d < ay.end;
+  const ayEntries = entries.filter((e) => inAY(e.date));
+  const ayOutcomes = outcomes.filter((o) => inAY(o.date));
+
+  const totals = { teaching: 0, research: 0, service: 0, dpa: 0 };
+  ayEntries.forEach((e) => (totals[e.domain] = (totals[e.domain] || 0) + e.minutes));
+  const grand = Object.values(totals).reduce((a, b) => a + b, 0);
+
+  const elapsed = active ? Math.floor((now - active.startedAt) / 1000) : 0;
+
+  if (!ready) {
+    return (
+      <div style={{ background: C.paper, color: C.muted, fontFamily: "ui-monospace, monospace" }}
+        className="min-h-screen flex items-center justify-center text-sm">
+        Loading your ledger…
+      </div>
+    );
+  }
+
+  return (
+    <div style={{ background: C.paper, color: C.ink }} className="min-h-screen w-full">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+        .mono { font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+        .sans { font-family: 'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, sans-serif; }
+        .eyebrow { letter-spacing: 0.14em; text-transform: uppercase; }
+        button:focus-visible, select:focus-visible, input:focus-visible, textarea:focus-visible {
+          outline: 2px solid ${C.ink}; outline-offset: 2px;
+        }
+        @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+      `}</style>
+
+      <div className="mx-auto w-full max-w-2xl px-4 pb-24 pt-6 sans">
+        {/* Header */}
+        <div className="mb-5">
+          <div className="mono eyebrow text-xs mb-1" style={{ color: C.muted }}>
+            Academic year {ay.label} · {fmtHours(grand)} logged
+          </div>
+          <h1 className="mono text-2xl font-semibold tracking-tight">Effort Ledger</h1>
+          <p className="text-xs mt-1" style={{ color: C.muted }}>
+            Categories follow the SOE Faculty Workload Policy effort domains.
+          </p>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex gap-1 mb-5 p-1 rounded-lg" style={{ background: "#DCDEE3" }}>
+          {[
+            ["track", "Track"],
+            ["log", "Log"],
+            ["effort", "Effort"],
+            ["outcomes", "Outcomes"],
+          ].map(([k, label]) => (
+            <button
+              key={k}
+              onClick={() => setTab(k)}
+              className="flex-1 py-2 rounded-md mono text-xs font-medium"
+              style={{
+                background: tab === k ? C.card : "transparent",
+                color: tab === k ? C.ink : C.muted,
+                boxShadow: tab === k ? "0 1px 2px rgba(0,0,0,.12)" : "none",
+              }}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {tab === "track" && (
+          <TrackTab
+            {...{ active, elapsed, domain, setDomain, sub, setSub, note, setNote, clockIn, clockOut, discard, setEntries }}
+          />
+        )}
+        {tab === "log" && <LogTab entries={ayEntries} setEntries={setEntries} />}
+        {tab === "effort" && (
+          <EffortTab {...{ totals, grand, settings, setSettings, ay, ayOutcomes }} />
+        )}
+        {tab === "outcomes" && (
+          <OutcomesTab {...{ outcomes, setOutcomes, ayOutcomes, ay, totals, grand, ayEntries }} />
+        )}
+
+        <div className="mono text-xs mt-6 text-center" style={{ color: C.muted }}>
+          {saveState === "saving" && "Saving…"}
+          {saveState === "saved" && "Saved"}
+          {saveState === "error" && "Couldn't save — try again"}
+          {!saveState && "Data is stored privately to you"}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* ============================ TRACK ============================ */
+function TrackTab({ active, elapsed, domain, setDomain, sub, setSub, note, setNote, clockIn, clockOut, discard, setEntries }) {
+  const [manual, setManual] = useState(false);
+  const [mDate, setMDate] = useState(localDate(new Date()));
+  const [mH, setMH] = useState("1");
+  const [mM, setMM] = useState("0");
+  const [mDomain, setMDomain] = useState("teaching");
+  const [mSub, setMSub] = useState(DOMAINS.teaching.subs[0]);
+  const [mNote, setMNote] = useState("");
+
+  const d = active ? active.domain : domain;
+  const accent = DOMAINS[d].color;
+
+  const addManual = () => {
+    const mins = (parseInt(mH || "0", 10) || 0) * 60 + (parseInt(mM || "0", 10) || 0);
+    if (mins <= 0) return;
+    setEntries((p) => [
+      { id: `m${Date.now()}`, date: mDate, domain: mDomain, sub: mSub, minutes: mins, note: mNote, timed: false },
+      ...p,
+    ]);
+    setMH("1");
+    setMM("0");
+    setMNote("");
+    setManual(false);
+  };
+
+  return (
+    <div>
+      {/* Clock */}
+      <div
+        className="rounded-xl p-5 mb-4"
+        style={{ background: C.card, border: `1px solid ${C.hair}`, borderLeft: `4px solid ${accent}` }}
+      >
+        <div className="mono eyebrow text-xs mb-2" style={{ color: active ? C.live : C.muted }}>
+          {active ? "● On the clock" : "Not running"}
+        </div>
+        <div className="mono font-semibold tracking-tight" style={{ fontSize: "2.75rem", lineHeight: 1 }}>
+          {fmtClock(elapsed)}
+        </div>
+        {active && (
+          <div className="text-sm mt-3" style={{ color: C.muted }}>
+            <span style={{ color: accent, fontWeight: 600 }}>{DOMAINS[active.domain].label}</span> · {active.sub}
+          </div>
+        )}
+
+        <div className="flex gap-2 mt-4">
+          {!active ? (
+            <button
+              onClick={clockIn}
+              className="flex-1 py-3 rounded-lg mono text-sm font-semibold"
+              style={{ background: C.ink, color: "#fff" }}
+            >
+              Clock in
+            </button>
+          ) : (
+            <>
+              <button
+                onClick={clockOut}
+                className="flex-1 py-3 rounded-lg mono text-sm font-semibold"
+                style={{ background: C.live, color: "#fff" }}
+              >
+                Clock out & save
+              </button>
+              <button
+                onClick={discard}
+                className="py-3 px-4 rounded-lg mono text-sm"
+                style={{ border: `1px solid ${C.hair}`, color: C.muted, background: C.card }}
+              >
+                Discard
+              </button>
+            </>
+          )}
+        </div>
+        {active && (
+          <p className="text-xs mt-3" style={{ color: C.muted }}>
+            The timer keeps running if you close this — it resumes from when you clocked in.
+          </p>
+        )}
+      </div>
+
+      {/* Picker */}
+      {!active && (
+        <div className="rounded-xl p-4 mb-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+          <div className="mono eyebrow text-xs mb-3" style={{ color: C.muted }}>
+            What are you working on
+          </div>
+          <div className="grid grid-cols-2 gap-2 mb-3">
+            {Object.entries(DOMAINS).map(([k, v]) => (
+              <button
+                key={k}
+                onClick={() => {
+                  setDomain(k);
+                  setSub(v.subs[0]);
+                }}
+                className="py-2 px-3 rounded-lg text-xs font-semibold text-left"
+                style={{
+                  background: domain === k ? v.color : "#F1F2F5",
+                  color: domain === k ? "#fff" : C.ink,
+                  border: `1px solid ${domain === k ? v.color : C.hair}`,
+                }}
+              >
+                {v.label}
+              </button>
+            ))}
+          </div>
+          <p className="text-xs mb-3" style={{ color: C.muted }}>
+            {DOMAINS[domain].note}
+          </p>
+          <select
+            value={sub}
+            onChange={(e) => setSub(e.target.value)}
+            className="w-full p-3 rounded-lg text-sm mb-3"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          >
+            {DOMAINS[domain].subs.map((s) => (
+              <option key={s}>{s}</option>
+            ))}
+          </select>
+          <input
+            value={note}
+            onChange={(e) => setNote(e.target.value)}
+            placeholder="Note (course number, project, committee name)"
+            className="w-full p-3 rounded-lg text-sm"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          />
+        </div>
+      )}
+
+      {/* Manual */}
+      <div className="rounded-xl p-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+        <button onClick={() => setManual(!manual)} className="mono eyebrow text-xs" style={{ color: C.muted }}>
+          {manual ? "− Hide backfill" : "+ Backfill time you forgot to clock"}
+        </button>
+        {manual && (
+          <div className="mt-3">
+            <div className="flex gap-2 mb-2">
+              <input
+                type="date"
+                value={mDate}
+                onChange={(e) => setMDate(e.target.value)}
+                className="flex-1 p-3 rounded-lg text-sm"
+                style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+              />
+              <input
+                type="number"
+                min="0"
+                value={mH}
+                onChange={(e) => setMH(e.target.value)}
+                className="w-16 p-3 rounded-lg text-sm mono"
+                style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+                aria-label="Hours"
+              />
+              <input
+                type="number"
+                min="0"
+                max="59"
+                value={mM}
+                onChange={(e) => setMM(e.target.value)}
+                className="w-16 p-3 rounded-lg text-sm mono"
+                style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+                aria-label="Minutes"
+              />
+            </div>
+            <div className="mono text-xs mb-2" style={{ color: C.muted }}>
+              date · hours · minutes
+            </div>
+            <select
+              value={mDomain}
+              onChange={(e) => {
+                setMDomain(e.target.value);
+                setMSub(DOMAINS[e.target.value].subs[0]);
+              }}
+              className="w-full p-3 rounded-lg text-sm mb-2"
+              style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+            >
+              {Object.entries(DOMAINS).map(([k, v]) => (
+                <option key={k} value={k}>
+                  {v.label}
+                </option>
+              ))}
+            </select>
+            <select
+              value={mSub}
+              onChange={(e) => setMSub(e.target.value)}
+              className="w-full p-3 rounded-lg text-sm mb-2"
+              style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+            >
+              {DOMAINS[mDomain].subs.map((s) => (
+                <option key={s}>{s}</option>
+              ))}
+            </select>
+            <input
+              value={mNote}
+              onChange={(e) => setMNote(e.target.value)}
+              placeholder="Note"
+              className="w-full p-3 rounded-lg text-sm mb-2"
+              style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+            />
+            <button
+              onClick={addManual}
+              className="w-full py-3 rounded-lg mono text-sm font-semibold"
+              style={{ background: C.ink, color: "#fff" }}
+            >
+              Add entry
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+/* ============================ LOG ============================ */
+function LogTab({ entries, setEntries }) {
+  const [filter, setFilter] = useState("all");
+  const shown = filter === "all" ? entries : entries.filter((e) => e.domain === filter);
+  const byDate = shown.reduce((acc, e) => {
+    (acc[e.date] = acc[e.date] || []).push(e);
+    return acc;
+  }, {});
+  const dates = Object.keys(byDate).sort().reverse();
+
+  if (entries.length === 0) {
+    return (
+      <div className="rounded-xl p-8 text-center" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+        <div className="mono text-sm font-semibold mb-1">Nothing logged yet</div>
+        <p className="text-xs" style={{ color: C.muted }}>
+          Clock in on the Track tab, or backfill an entry to get the year started.
+        </p>
+      </div>
+    );
+  }
+
+  return (
+    <div>
+      <div className="flex gap-1 mb-3 overflow-x-auto pb-1">
+        {[["all", "All"], ...Object.entries(DOMAINS).map(([k, v]) => [k, v.label])].map(([k, label]) => (
+          <button
+            key={k}
+            onClick={() => setFilter(k)}
+            className="px-3 py-1 rounded-full mono text-xs whitespace-nowrap"
+            style={{
+              background: filter === k ? C.ink : C.card,
+              color: filter === k ? "#fff" : C.muted,
+              border: `1px solid ${filter === k ? C.ink : C.hair}`,
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {dates.map((d) => {
+        const dayMins = byDate[d].reduce((a, e) => a + e.minutes, 0);
+        return (
+          <div key={d} className="mb-4">
+            <div className="flex justify-between items-baseline mb-2 px-1">
+              <span className="mono eyebrow text-xs" style={{ color: C.muted }}>
+                {prettyDate(d)}
+              </span>
+              <span className="mono text-xs font-semibold">{fmtHours(dayMins)}</span>
+            </div>
+            <div className="rounded-xl overflow-hidden" style={{ border: `1px solid ${C.hair}` }}>
+              {byDate[d].map((e, i) => (
+                <div
+                  key={e.id}
+                  className="flex items-start gap-3 p-3"
+                  style={{
+                    background: C.card,
+                    borderTop: i > 0 ? `1px solid ${C.hair}` : "none",
+                    borderLeft: `3px solid ${DOMAINS[e.domain].color}`,
+                  }}
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="text-sm font-medium truncate">{e.sub}</div>
+                    <div className="text-xs mt-0.5" style={{ color: C.muted }}>
+                      {DOMAINS[e.domain].label}
+                      {e.note ? ` · ${e.note}` : ""}
+                      {!e.timed ? " · backfilled" : ""}
+                    </div>
+                  </div>
+                  <div className="mono text-sm font-semibold whitespace-nowrap">{fmtHours(e.minutes)}</div>
+                  <button
+                    onClick={() => setEntries((p) => p.filter((x) => x.id !== e.id))}
+                    className="mono text-xs px-1"
+                    style={{ color: C.muted }}
+                    aria-label="Delete entry"
+                  >
+                    ✕
+                  </button>
+                </div>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ============================ EFFORT ============================ */
+function EffortTab({ totals, grand, settings, setSettings, ay, ayOutcomes }) {
+  const [editing, setEditing] = useState(false);
+  const planSum = Object.values(settings.plan).reduce((a, b) => a + Number(b || 0), 0);
+
+  const rows = Object.entries(DOMAINS).map(([k, v]) => {
+    const mins = totals[k] || 0;
+    const actual = grand > 0 ? (mins / grand) * 100 : 0;
+    return { k, v, mins, actual, planned: Number(settings.plan[k] || 0) };
+  });
+
+  const peerObs = ayOutcomes.filter((o) => o.type === "Peer observation of my teaching completed").length;
+
+  return (
+    <div>
+      {/* Signature: assigned vs actual */}
+      <div className="rounded-xl p-4 mb-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+        <div className="mono eyebrow text-xs mb-1" style={{ color: C.muted }}>
+          Assigned effort vs. where time actually went
+        </div>
+        <p className="text-xs mb-4" style={{ color: C.muted }}>
+          Your workload plan is set with your Chair and approved by the Dean (SOE Workload Policy §7).
+          Drift between the two rows is the conversation to have at review.
+        </p>
+
+        {rows.map(({ k, v, mins, actual, planned }) => (
+          <div key={k} className="mb-4">
+            <div className="flex justify-between items-baseline mb-1">
+              <span className="text-sm font-semibold" style={{ color: v.color }}>
+                {v.label}
+              </span>
+              <span className="mono text-xs" style={{ color: C.muted }}>
+                {fmtHours(mins)}
+              </span>
+            </div>
+
+            <div className="flex items-center gap-2 mb-1">
+              <span className="mono text-xs w-14" style={{ color: C.muted }}>
+                assigned
+              </span>
+              <div className="flex-1 h-2 rounded-full" style={{ background: "#EDEEF1" }}>
+                <div
+                  className="h-2 rounded-full"
+                  style={{ width: `${Math.min(100, planned)}%`, background: v.color, opacity: 0.35 }}
+                />
+              </div>
+              <span className="mono text-xs w-10 text-right">{planned}%</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="mono text-xs w-14" style={{ color: C.muted }}>
+                actual
+              </span>
+              <div className="flex-1 h-2 rounded-full" style={{ background: "#EDEEF1" }}>
+                <div
+                  className="h-2 rounded-full"
+                  style={{ width: `${Math.min(100, actual)}%`, background: v.color }}
+                />
+              </div>
+              <span className="mono text-xs w-10 text-right">{actual.toFixed(0)}%</span>
+            </div>
+          </div>
+        ))}
+
+        <button
+          onClick={() => setEditing(!editing)}
+          className="mono eyebrow text-xs mt-1"
+          style={{ color: C.muted }}
+        >
+          {editing ? "− Done" : "+ Set my assigned workload plan"}
+        </button>
+
+        {editing && (
+          <div className="mt-3 pt-3" style={{ borderTop: `1px solid ${C.hair}` }}>
+            {Object.entries(DOMAINS).map(([k, v]) => (
+              <div key={k} className="flex items-center gap-3 mb-2">
+                <span className="text-sm flex-1">{v.label}</span>
+                <input
+                  type="number"
+                  min="0"
+                  max="100"
+                  value={settings.plan[k]}
+                  onChange={(e) =>
+                    setSettings((s) => ({ ...s, plan: { ...s.plan, [k]: Number(e.target.value) } }))
+                  }
+                  className="w-20 p-2 rounded-lg text-sm mono text-right"
+                  style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+                />
+                <span className="mono text-xs" style={{ color: C.muted }}>
+                  %
+                </span>
+              </div>
+            ))}
+            <div className="mono text-xs mt-2" style={{ color: planSum === 100 ? C.muted : C.live }}>
+              Total {planSum}% {planSum !== 100 && "— should sum to 100"}
+            </div>
+            <p className="text-xs mt-2" style={{ color: C.muted }}>
+              Default for Professional Track faculty in the SOE is 80% teaching / 20% service.
+              Any reallocation to research needs Chair and Dean approval.
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Renewal check */}
+      <div className="rounded-xl p-4 mb-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+        <div className="mono eyebrow text-xs mb-2" style={{ color: C.muted }}>
+          Renewal requirement check · AY {ay.label}
+        </div>
+        <div className="flex items-center gap-3">
+          <span
+            className="mono text-lg font-semibold w-10 text-center rounded-lg py-1"
+            style={{
+              background: peerObs >= 1 ? "#E6F0EC" : "#F7E9E6",
+              color: peerObs >= 1 ? C.teaching : C.live,
+            }}
+          >
+            {peerObs}
+          </span>
+          <div className="flex-1">
+            <div className="text-sm font-medium">Peer observations of teaching</div>
+            <div className="text-xs" style={{ color: C.muted }}>
+              Minimum 1 per academic year required for clinical renewal and promotion dossiers.
+              {peerObs < 1 && " Not logged yet this year."}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Weekly baseline */}
+      <div className="rounded-xl p-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+        <div className="mono eyebrow text-xs mb-2" style={{ color: C.muted }}>
+          Reference
+        </div>
+        <p className="text-xs" style={{ color: C.muted }}>
+          Under the SOE Workload Policy, a typical organized 3-credit course equals 10% of a 1.0 FTE
+          workload, and a full teaching load is 24 credit hours per academic year. Hours here are your
+          own record — they aren't a policy-defined unit, but they show whether the assigned percentages
+          match reality.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/* ============================ OUTCOMES ============================ */
+function OutcomesTab({ outcomes, setOutcomes, ayOutcomes, ay, totals, grand, ayEntries }) {
+  const [adding, setAdding] = useState(false);
+  const [oDomain, setODomain] = useState("research");
+  const [oType, setOType] = useState(OUTCOME_TYPES.research[0]);
+  const [oTitle, setOTitle] = useState("");
+  const [oDate, setODate] = useState(localDate(new Date()));
+  const [oNote, setONote] = useState("");
+  const [showSummary, setShowSummary] = useState(false);
+
+  const add = () => {
+    if (!oTitle.trim()) return;
+    setOutcomes((p) => [
+      { id: `o${Date.now()}`, domain: oDomain, type: oType, title: oTitle.trim(), date: oDate, note: oNote },
+      ...p,
+    ]);
+    setOTitle("");
+    setONote("");
+    setAdding(false);
+  };
+
+  const summary = () => {
+    const lines = [`EFFORT & OUTCOMES SUMMARY — Academic Year ${ay.label}`, ""];
+    lines.push(`Total documented time: ${fmtHours(grand)} across ${ayEntries.length} entries`, "");
+    Object.entries(DOMAINS).forEach(([k, v]) => {
+      const mins = totals[k] || 0;
+      if (mins === 0 && !ayOutcomes.some((o) => o.domain === k)) return;
+      const pct = grand > 0 ? ((mins / grand) * 100).toFixed(0) : 0;
+      lines.push(`${v.label.toUpperCase()} — ${fmtHours(mins)} (${pct}% of documented time)`);
+      const bySub = {};
+      ayEntries.filter((e) => e.domain === k).forEach((e) => {
+        bySub[e.sub] = (bySub[e.sub] || 0) + e.minutes;
+      });
+      Object.entries(bySub)
+        .sort((a, b) => b[1] - a[1])
+        .forEach(([s, m]) => lines.push(`   ${s}: ${fmtHours(m)}`));
+      const outs = ayOutcomes.filter((o) => o.domain === k);
+      if (outs.length) {
+        lines.push(`   Outcomes:`);
+        outs.forEach((o) => lines.push(`   • [${o.type}] ${o.title} (${prettyDate(o.date)})`));
+      }
+      lines.push("");
+    });
+    return lines.join("\n");
+  };
+
+  return (
+    <div>
+      <button
+        onClick={() => setAdding(!adding)}
+        className="w-full py-3 rounded-lg mono text-sm font-semibold mb-4"
+        style={{ background: adding ? C.card : C.ink, color: adding ? C.ink : "#fff", border: `1px solid ${C.ink}` }}
+      >
+        {adding ? "Cancel" : "+ Record an outcome"}
+      </button>
+
+      {adding && (
+        <div className="rounded-xl p-4 mb-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+          <select
+            value={oDomain}
+            onChange={(e) => {
+              setODomain(e.target.value);
+              setOType(OUTCOME_TYPES[e.target.value][0]);
+            }}
+            className="w-full p-3 rounded-lg text-sm mb-2"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          >
+            {Object.entries(DOMAINS).map(([k, v]) => (
+              <option key={k} value={k}>
+                {v.label}
+              </option>
+            ))}
+          </select>
+          <select
+            value={oType}
+            onChange={(e) => setOType(e.target.value)}
+            className="w-full p-3 rounded-lg text-sm mb-2"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          >
+            {OUTCOME_TYPES[oDomain].map((t) => (
+              <option key={t}>{t}</option>
+            ))}
+          </select>
+          <input
+            value={oTitle}
+            onChange={(e) => setOTitle(e.target.value)}
+            placeholder="Title — article, course, committee, venue"
+            className="w-full p-3 rounded-lg text-sm mb-2"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          />
+          <input
+            type="date"
+            value={oDate}
+            onChange={(e) => setODate(e.target.value)}
+            className="w-full p-3 rounded-lg text-sm mb-2"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          />
+          <input
+            value={oNote}
+            onChange={(e) => setONote(e.target.value)}
+            placeholder="Note (co-authors, role, outlet)"
+            className="w-full p-3 rounded-lg text-sm mb-2"
+            style={{ border: `1px solid ${C.hair}`, background: "#F8F9FA", color: C.ink }}
+          />
+          <button
+            onClick={add}
+            className="w-full py-3 rounded-lg mono text-sm font-semibold"
+            style={{ background: C.ink, color: "#fff" }}
+          >
+            Save outcome
+          </button>
+        </div>
+      )}
+
+      {ayOutcomes.length === 0 ? (
+        <div className="rounded-xl p-8 text-center mb-4" style={{ background: C.card, border: `1px solid ${C.hair}` }}>
+          <div className="mono text-sm font-semibold mb-1">No outcomes recorded</div>
+          <p className="text-xs" style={{ color: C.muted }}>
+            Log publications, presentations, peer observations, and service roles as they happen so the
+            dossier writes itself.
+          </p>
+        </div>
+      ) : (
+        <div className="rounded-xl overflow-hidden mb-4" style={{ border: `1px solid ${C.hair}` }}>
+          {ayOutcomes
+            .slice()
+            .sort((a, b) => (a.date < b.date ? 1 : -1))
+            .map((o, i) => (
+              <div
+                key={o.id}
+                className="flex items-start gap-3 p-3"
+                style={{
+                  background: C.card,
+                  borderTop: i > 0 ? `1px solid ${C.hair}` : "none",
+                  borderLeft: `3px solid ${DOMAINS[o.domain].color}`,
+                }}
+              >
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm font-medium">{o.title}</div>
+                  <div className="text-xs mt-0.5" style={{ color: C.muted }}>
+                    {o.type} · {prettyDate(o.date)}
+                    {o.note ? ` · ${o.note}` : ""}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setOutcomes((p) => p.filter((x) => x.id !== o.id))}
+                  className="mono text-xs px-1"
+                  style={{ color: C.muted }}
+                  aria-label="Delete outcome"
+                >
+                  ✕
+                </button>
+              </div>
+            ))}
+        </div>
+      )}
+
+      <button
+        onClick={() => setShowSummary(!showSummary)}
+        className="w-full py-3 rounded-lg mono text-sm"
+        style={{ background: C.card, color: C.ink, border: `1px solid ${C.hair}` }}
+      >
+        {showSummary ? "Hide annual review summary" : "Build annual review summary"}
+      </button>
+
+      {showSummary && (
+        <textarea
+          readOnly
+          value={summary()}
+          className="w-full mt-3 p-3 rounded-lg mono text-xs"
+          style={{ background: C.card, border: `1px solid ${C.hair}`, color: C.ink, height: "20rem" }}
+        />
+      )}
+    </div>
+  );
+}
+
+
+/* ------------------------------------------------------------------
+   Wrapper: adds file-based backup on top of the app.
+   ------------------------------------------------------------------ */
+const KEYS = ["ledger:entries", "ledger:outcomes", "ledger:settings", "ledger:active"];
+
+function Root() {
+  const [msg, setMsg] = useState("");
+  const [nonce, setNonce] = useState(0);
+  const fileRef = useRef(null);
+
+  const exportData = async () => {
+    const dump = { exportedAt: new Date().toISOString(), version: 1, data: {} };
+    await Promise.all(
+      KEYS.map(async (k) => {
+        try {
+          const r = await window.storage.get(k);
+          dump.data[k] = r ? r.value : null;
+        } catch {
+          dump.data[k] = null;
+        }
+      })
+    );
+    const blob = new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = `effort-ledger-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+    setMsg("Backup file downloaded.");
+    setTimeout(() => setMsg(""), 4000);
+  };
+
+  const importData = (ev) => {
+    const file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = async () => {
+      try {
+        const parsed = JSON.parse(reader.result);
+        if (!parsed.data) throw new Error("bad file");
+        if (!confirm("This replaces everything currently saved. Continue?")) return;
+        await Promise.all(
+          KEYS.map(async (k) => {
+            if (parsed.data[k] == null) {
+              try { await window.storage.delete(k); } catch {}
+            } else {
+              await window.storage.set(k, parsed.data[k]);
+            }
+          })
+        );
+        setNonce((n) => n + 1);
+        setMsg("Backup restored.");
+        setTimeout(() => setMsg(""), 4000);
+      } catch (e) {
+        setMsg("That file couldn't be read as a ledger backup.");
+        setTimeout(() => setMsg(""), 5000);
+      }
+    };
+    reader.readAsText(file);
+    ev.target.value = "";
+  };
+
+  return (
+    <div>
+      <EffortLedger key={nonce} />
+      <div style={{ maxWidth: "42rem", margin: "0 auto", padding: "0 1rem 3rem" }}>
+        <div
+          style={{
+            background: "#FFFFFF",
+            border: "1px solid #D2D6DD",
+            borderRadius: "0.75rem",
+            padding: "1rem",
+          }}
+        >
+          <div
+            className="mono eyebrow"
+            style={{ fontSize: "0.75rem", color: "#5F6875", marginBottom: "0.5rem" }}
+          >
+            Backup
+          </div>
+          <p style={{ fontSize: "0.75rem", color: "#5F6875", margin: "0 0 0.75rem" }}>
+            Your data is saved to this site's private cloud storage, so it survives refreshes and works
+            across devices. Download a backup file periodically and keep it somewhere you control.
+          </p>
+          <div style={{ display: "flex", gap: "0.5rem" }}>
+            <button
+              onClick={exportData}
+              className="mono"
+              style={{
+                flex: 1, padding: "0.75rem", borderRadius: "0.5rem",
+                background: "#16202E", color: "#fff", border: "none",
+                fontSize: "0.875rem", fontWeight: 600, cursor: "pointer",
+              }}
+            >
+              Download backup
+            </button>
+            <button
+              onClick={() => fileRef.current && fileRef.current.click()}
+              className="mono"
+              style={{
+                flex: 1, padding: "0.75rem", borderRadius: "0.5rem",
+                background: "#fff", color: "#16202E", border: "1px solid #D2D6DD",
+                fontSize: "0.875rem", cursor: "pointer",
+              }}
+            >
+              Restore from file
+            </button>
+          </div>
+          <input
+            ref={fileRef}
+            type="file"
+            accept="application/json,.json"
+            onChange={importData}
+            style={{ display: "none" }}
+          />
+          {msg && (
+            <div className="mono" style={{ fontSize: "0.75rem", color: "#16202E", marginTop: "0.75rem" }}>
+              {msg}
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
+</script>
+</body></html>
